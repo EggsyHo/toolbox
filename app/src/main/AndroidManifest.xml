@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nwnu.toolbox">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.autofocus" />
+
+    <permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name="org.litepal.LitePalApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_secure_config"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.nwnu.toolbox.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nwnu.toolbox.activity.MainActivity" />
+
+        <!-- weather -->
+        <activity android:name="com.nwnu.toolbox.activity.AboutActivity" />
+        <activity
+            android:name="com.nwnu.toolbox.activity.weather.MainActivity"
+            android:launchMode="singleTask" />
+
+        <!-- torch -->
+        <activity
+            android:name="com.nwnu.toolbox.activity.weather.WeatherActivity"
+            android:launchMode="singleTask" />
+
+        <!-- transcoding -->
+        <activity
+            android:name="com.nwnu.toolbox.activity.torch.MainActivity"
+            android:launchMode="singleTask" />
+
+        <!-- morsecode -->
+        <activity
+            android:name="com.nwnu.toolbox.activity.transcoding.TranscodingActivity"
+            android:launchMode="singleTask" />
+
+        <!-- weather -->
+        <activity
+            android:name="com.nwnu.toolbox.activity.morsecode.MorseCodeActivity"
+            android:launchMode="singleTask" />
+
+        <!-- torch -->
+        <service
+            android:name="com.nwnu.toolbox.service.weather.AutoUpdateService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name="com.nwnu.toolbox.activity.ruler.RulerMainActivity" />
+        <activity android:name="com.nwnu.toolbox.activity.shortlink.ShortLinkMainActivity" />
+        <activity android:name="com.nwnu.toolbox.activity.htmlget.HtmlGetMainActivity" />
+        <activity android:name="com.nwnu.toolbox.activity.htmlget.HtmlCodeActivity" />
+        <activity android:name="com.nwnu.toolbox.activity.randomnumber.RandomNumberMainActivity" />
+
+        <activity android:name="com.nwnu.toolbox.activity.qrcodevisitacard.QRCodeVisitingCardMainActivity" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.nwnu.toolbox.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+        <activity android:name="com.nwnu.toolbox.activity.radix.RadixMainActivity" />
+        <activity android:name="com.nwnu.toolbox.activity.chooseproblem.ChooseProblemMainActivity" />
+        <activity android:name="com.nwnu.toolbox.activity.chooseproblem.ChooseProblemListActivity" />
+        <activity android:name="com.nwnu.toolbox.activity.chooseproblem.ChooseProblemDetailListActivity" />
+    </application>
+
+</manifest>
